@@ -82,8 +82,13 @@ http://ffmpeg.org/ffmpeg.html
 
 
 * `startRecording` call this method when you have already set all the desired options,  
-                this will start recording the screen.
+                this will start recording the screen. It accepts two optional arguments first the desired 
+                location to save the video file and second the number of seconds to sleep after starting the process
+                this is useful cause ffmpeg takes 1-2 seconds to start the recording default value for this is 2 seconds
+                you can change it according to your need,
 * `stopRecording` this will stop recording the screen.
+it take one optional argument ,the number of seconds to sleep after starting the process
+                                                                      this is useful cause ffmpeg takes 1-2 seconds to start the recording
 
 * `getVideo` returns the saved video file.
 

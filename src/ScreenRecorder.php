@@ -74,35 +74,41 @@ class ScreenRecorder
         }
         $this->setOptions(['-video_size'=>$width.'x'.$height]);
     }
+
     /**
      * starts the recording
      * if $pathToSaveVideo is provided
      * the video will be recorded on that place
      * else it will save in temporary folder of Operating system
      * @param string|null $pathToSaveVideo
+     * @param int $sleep number of seconds to sleep after starting the process
      * @author Dawood Ikhlaq <daudmalik06@gmail.com>
      */
-    public function startRecording($pathToSaveVideo=null)
+    public function startRecording($pathToSaveVideo=null,$sleep=2)
     {
         $this->pathToSaveVideo=$pathToSaveVideo?$pathToSaveVideo.(strstr($pathToSaveVideo,'.flv')?'':'.flv'):$this->pathToSaveVideo;
         $this->deleteFileIfExist($this->pathToSaveVideo);
         $this->setOptions([''=>$this->pathToSaveVideo]);
         $this->process=new Process($this->command);
         $this->process->start();
+        sleep($sleep);
     }
 
     /**
      * stop the recording
      * @author Dawood Ikhlaq <daudmalik06@gmail.com>
+     * @param int $sleep number of seconds to sleep after stopping the process
+     * @throws \Exception
      */
-    public function stopRecording()
+    public function stopRecording($sleep=2)
     {
         if(!$this->process->getPid())
         {
             throw new \Exception("Some error occurred during recording, verify your provided options");
         }
-        $this->process->signal(SIGKILL);
+        $this->process->signal(9);
         unset($this->process);
+        sleep($sleep);
     }
 
     /**
