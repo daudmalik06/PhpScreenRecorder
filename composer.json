@@ -12,7 +12,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "symfony/process": "^3.3"
+        "symfony/process": "^2.7.10"
     },
     "autoload": {
         "psr-4": {
