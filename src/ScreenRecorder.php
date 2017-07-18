@@ -102,13 +102,13 @@ class ScreenRecorder
      */
     public function stopRecording($sleep=2)
     {
+        sleep($sleep);
         if(!$this->process->getPid())
         {
             throw new \Exception("Some error occurred during recording, verify your provided options");
         }
         $this->process->signal(9);
         unset($this->process);
-        sleep($sleep);
     }
 
     /**
