@@ -1,0 +1,25 @@
+{
+    "name": "dawood/phpscreenrecorder",
+    "description": "A slim PHP wrapper around ffmpeg to record screen,best for recording your acceptance test using selenium, easy to use and clean OOP interface",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["shell","php","selenium","chrome","video","recording"],
+    "authors": [
+        {
+            "name": "Dawood Ikhlaq",
+            "email": "daudmalik06@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/process": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "dawood\\PhpScreenRecorder\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    }
+}
