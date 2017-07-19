@@ -57,6 +57,28 @@ print "video is saved at :\"".$screenRecorder->getVideo().'"'.PHP_EOL;
 ```
 
 
+### Selenium test example
+```php
+
+public function testLoginUserCorrectly()
+{
+    $this->screenRecorder->setScreenSizeToCapture(1920,1080);
+    $this->screenRecorder->startRecording(__DIR__."/videos/loginCorrectly.flv",2);
+    $loginInput = [
+        'username' => 'test',
+        'password' => 'password'
+    ];
+    $this->visit('/')
+        ->submitForm("#loginform > form",$loginInput)
+        ->wait(3)
+        ->see("Logout")
+        ->wait(2);
+    $this->screenRecorder->stopRecording(0);
+
+}
+
+```
+
 ## Setting options
 
 The `ffmpeg` shell command accepts different types of options:
