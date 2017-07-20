@@ -6,7 +6,7 @@ acceptance test using selenium, easy to use and clean OOP interface.
 
 
 ## History
-i had give a task to make **acceptance test suite** but also to record the videos of those
+i had given a task to make **acceptance test suite** but also to record the videos of those
 tests , i was using **selenium** to do that task and for video i was not able to find
 any elegant solution that's why i created this library.
 
