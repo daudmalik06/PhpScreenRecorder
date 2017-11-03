@@ -1,36 +1,36 @@
 PHP Screen Recorder
 ===============
 
-A slim php wrapper around [ffmpeg](https://ffmpeg.org/) to record screen,best for recording your 
-acceptance test using selenium, easy to use and clean OOP interface. 
+A lightweight php wrapper around [ffmpeg](https://ffmpeg.org/) to record the screen, best for recording your 
+acceptance tests using selenium, it's easy to use and clean OOP interface. 
 
 
 ## History
-i had given a task to make **acceptance test suite** but also to record the videos of those
-tests , i was using **selenium** to do that task and for video i was not able to find
-any elegant solution that's why i created this library.
+I was given a task to make an **acceptance test suite** which included recording videos of the
+tests. I was using **selenium** for the task and for the video recording, however, I was unable to find
+an elegant solution which is why i created this library.
 
 
 ## Usage 
 
-it's so easy to use this library,  
-You have to call the method   `startRecording` when you want to start the recording 
-then this library will start the recording in the background
-and when you done your task you can call `stopRecording` to stop the recording .
+One of the best features of this library is its ease of use.
+  
+The   `startRecording` method is called when the user wants to start the recording 
+after which this library will start the video recording in the background.
+When the user has completed their task they can call `stopRecording` to stop the recording .
 
 ## Installation
-it's so easy to install this library  
-Install the package through [composer](http://getcomposer.org):
+The library is easily installed as a package through [composer](http://getcomposer.org):
 
 ```
 composer require dawood/phpscreenrecorder
 ```
-*that's it you're done nothing else to install* 
+*that's it, nothing else is required for the installation* 
 
 
 
 ## Examples
-There is an examples provided in examples folder too
+There are examples provided in examples folder as well.
 
 Make sure, that you include the composer [autoloader](https://getcomposer.org/doc/01-basic-usage.md#autoloading)
 somewhere in your codebase.
@@ -81,8 +81,8 @@ public function testLoginUserCorrectly()
 
 ## Setting options
 
-The `ffmpeg` shell command accepts different types of options:
-for complete list of options you can visit 
+The `ffmpeg` shell command can accept different options:
+for a complete list of options you can visit: 
 http://ffmpeg.org/ffmpeg.html
 
  
@@ -90,7 +90,7 @@ http://ffmpeg.org/ffmpeg.html
 ### Wrapper Methods
 
 
- * `setOptions` accepts the options in array you can provide any option in following way.
+ * `setOptions` accepts the options in the array. You can provide any option in following way:
  ```php                 
        $options['-show_region'=>'1']
        $screenRecorder->setOptions($options);
@@ -100,28 +100,27 @@ http://ffmpeg.org/ffmpeg.html
  so it's difficult to know for which option i have to set that
  that's why you have to provide complete option.
 
-* `setScreenSizeToCapture` screen size to capture it accepts two arguments first width and second height.
+* `setScreenSizeToCapture` screen size to capture, it accepts two arguments the first being the width and other being the height.
 
 
-* `startRecording` call this method when you have already set all the desired options,  
-                this will start recording the screen. It accepts two optional arguments first the desired 
-                location to save the video file and second the number of seconds to sleep after starting the process
-                this is useful cause ffmpeg takes 1-2 seconds to start the recording default value for this is 2 seconds
-                you can change it according to your need,
-* `stopRecording` this will stop recording the screen.
-it take one optional argument ,the number of seconds to sleep after starting the process
-                                                                      this is useful cause ffmpeg takes 1-2 seconds to start the recording
+* `startRecording` call this method after you have set all the desired options,  
+                this will start the screen recording. The method accepts two optional arguments, firstly the desired 
+                location to save the video file and secondly the number of seconds to sleep after starting the process.
+                This is useful because ffmpeg takes 1-2 seconds to start the recording, the default value for this is 2 seconds.
+                You can may change this according to your requirements.
+* `stopRecording` this will stop the screen recording.
+The method can also take one optional argument, the number of seconds to sleep after starting the process.
+This is useful because ffmpeg takes 1-2 seconds to start the recording.
 
 * `getVideo` returns the saved video file.
 
-* `setBinary` for this library you don't need any binary file it comes with everything.  
-but in any case you need to use some other binary you can provide it using this method.  
+* `setBinary` for this library you do not require any binary as everything is already included, however, if you need to use any other binary you can provide it using this method.  
 
-* `getCommandToRun` returns the generated command that will be executed by library ,  
-this is useful to check how you have set the options or to debug.  
+* `getCommandToRun` returns the generated command that will be executed by library.  
+This is useful to check how you have set the options or to debug.  
 
 
-* `getOptions` returns array of all the set options.
+* `getOptions` returns an array of all the set options.
 
 * `getBinary` returns the currently set binary file i.e ffmpeg.
 
