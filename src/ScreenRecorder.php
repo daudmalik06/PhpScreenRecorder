@@ -141,7 +141,7 @@ class ScreenRecorder
     private function setBinaryForCurrentOs()
     {
         $ds=DIRECTORY_SEPARATOR;
-        if(stristr(PHP_OS, 'win'))
+        if(stristr(PHP_OS, 'windows'))
         {
             $this->setBinary(__DIR__.$ds."bin".$ds."ffmpegWindows.exe");
         }elseif(stristr(PHP_OS, 'darwin'))
